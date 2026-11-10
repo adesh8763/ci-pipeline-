@@ -1,0 +1,22 @@
+{
+  "events.csv": {
+    "event_id": "str: CI_<t0>_<lat>_<lon>",
+    "t0": "UTC time of first slot meeting the new-cold-object criterion (initiation reference time)",
+    "t0_index": "int: index on the regular satellite time axis",
+    "lat/lon": "float deg: centroid of the object at t0",
+    "n_pixels_t0 / min_bt_t0_k": "object size and coldest BT at t0",
+    "label": "true_ci | false_ci | ambiguous | unknown | excluded_missing_history",
+    "core_reached": "bool|null: outcome (a), BT core criterion within the outcome window",
+    "precip_exceeds": "bool|null: outcome (b), IMERG-ESTIMATE threshold (NOT radar)",
+    "max_precip_mm_h": "float: max observed IMERG estimate in the footprint/window",
+    "outcome_sat_complete / outcome_precip_complete": "bool: outcome observations fully available"
+  },
+  "samples.csv": {
+    "event_id, t0, lead_min, t_forecast": "t_forecast = t0 - lead_min; ALL predictors have valid time <= t_forecast",
+    "lat, lon, label, y": "y = 1 for true_ci else 0; only true_ci/false_ci events are sampled",
+    "valid_sat / valid_precip / valid_era5 / valid_all": "bool per-source validity; features are NaN where invalid",
+    "sat_*": "SEVIRI IR10.8 footprint statistics and 30/60-min trends (K)",
+    "pr_*": "last completed IMERG-estimate window(s) before t_forecast (mm/h); pr_window_end_age_min = t_forecast - window end",
+    "era5_*": "latest hourly ERA5 with valid time <= t_forecast; era5_age_min = age at forecast time (0-59)"
+  }
+}

@@ -1,0 +1,306 @@
+Found 3962 boxed SEVIRI files.
+Indexed 200/3962 files.
+Indexed 400/3962 files.
+Indexed 600/3962 files.
+Indexed 800/3962 files.
+Indexed 1000/3962 files.
+Indexed 1200/3962 files.
+Indexed 1400/3962 files.
+Indexed 1600/3962 files.
+Indexed 1800/3962 files.
+Indexed 2000/3962 files.
+Indexed 2200/3962 files.
+Indexed 2400/3962 files.
+Indexed 2600/3962 files.
+Indexed 2800/3962 files.
+Indexed 3000/3962 files.
+Indexed 3200/3962 files.
+Indexed 3400/3962 files.
+Indexed 3600/3962 files.
+Indexed 3800/3962 files.
+
+Valid scenes: 3962
+Skipped during indexing: 0
+Processing 42 days.
+
+Processing 2006-08-19...
+Written: seviri_2006-08-19.nc | 96 scenes
+
+Processing 2006-08-20...
+Written: seviri_2006-08-20.nc | 96 scenes
+
+Processing 2006-08-21...
+Written: seviri_2006-08-21.nc | 96 scenes
+
+Processing 2006-08-22...
+Written: seviri_2006-08-22.nc | 96 scenes
+
+Processing 2006-08-23...
+Written: seviri_2006-08-23.nc | 96 scenes
+
+Processing 2006-08-24...
+Written: seviri_2006-08-24.nc | 96 scenes
+
+Processing 2006-08-25...
+Written: seviri_2006-08-25.nc | 96 scenes
+
+Processing 2006-08-26...
+Written: seviri_2006-08-26.nc | 96 scenes
+
+Processing 2006-08-27...
+Written: seviri_2006-08-27.nc | 96 scenes
+
+Processing 2006-08-28...
+Written: seviri_2006-08-28.nc | 96 scenes
+
+Processing 2006-08-29...
+Written: seviri_2006-08-29.nc | 96 scenes
+
+Processing 2006-08-30...
+Written: seviri_2006-08-30.nc | 96 scenes
+
+Processing 2006-08-31...
+Written: seviri_2006-08-31.nc | 96 scenes
+
+Processing 2006-09-01...
+Written: seviri_2006-09-01.nc | 96 scenes
+
+Processing 2006-09-02...
+Written: seviri_2006-09-02.nc | 96 scenes
+
+Processing 2006-09-03...
+Written: seviri_2006-09-03.nc | 96 scenes
+
+Processing 2006-09-04...
+Written: seviri_2006-09-04.nc | 96 scenes
+
+Processing 2006-09-05...
+Written: seviri_2006-09-05.nc | 96 scenes
+
+Processing 2006-09-06...
+Written: seviri_2006-09-06.nc | 96 scenes
+
+Processing 2006-09-07...
+Written: seviri_2006-09-07.nc | 96 scenes
+
+Processing 2006-09-08...
+Written: seviri_2006-09-08.nc | 94 scenes
+
+Processing 2006-09-09...
+Written: seviri_2006-09-09.nc | 96 scenes
+
+Processing 2006-09-10...
+Written: seviri_2006-09-10.nc | 96 scenes
+
+Processing 2006-09-11...
+Written: seviri_2006-09-11.nc | 96 scenes
+
+Processing 2006-09-12...
+Written: seviri_2006-09-12.nc | 96 scenes
+
+Processing 2006-09-13...
+Written: seviri_2006-09-13.nc | 96 scenes
+
+Processing 2006-09-14...
+Written: seviri_2006-09-14.nc | 96 scenes
+
+Processing 2006-09-15...
+Written: seviri_2006-09-15.nc | 96 scenes
+
+Processing 2006-09-16...
+Written: seviri_2006-09-16.nc | 96 scenes
+
+Processing 2006-09-17...
+Written: seviri_2006-09-17.nc | 96 scenes
+
+Processing 2006-09-18...
+Written: seviri_2006-09-18.nc | 96 scenes
+
+Processing 2006-09-19...
+Written: seviri_2006-09-19.nc | 96 scenes
+
+Processing 2006-09-20...
+Written: seviri_2006-09-20.nc | 96 scenes
+
+Processing 2006-09-21...
+Written: seviri_2006-09-21.nc | 96 scenes
+
+Processing 2006-09-22...
+Written: seviri_2006-09-22.nc | 96 scenes
+
+Processing 2006-09-23...
+Written: seviri_2006-09-23.nc | 56 scenes
+
+Processing 2006-09-25...
+Written: seviri_2006-09-25.nc | 69 scenes
+
+Processing 2006-09-26...
+Written: seviri_2006-09-26.nc | 96 scenes
+
+Processing 2006-09-27...
+Written: seviri_2006-09-27.nc | 96 scenes
+
+Processing 2006-09-28...
+Written: seviri_2006-09-28.nc | 96 scenes
+
+Processing 2006-09-29...
+Written: seviri_2006-09-29.nc | 96 scenes
+
+Processing 2006-09-30...
+Written: seviri_2006-09-30.nc | 95 scenes
+
+SEVIRI feature extraction completed.
+Output directory: /home/adesh/Documents/Projects/Storm-Paper/Code/data/interim/seviri_features
+Found 3962 boxed SEVIRI files.
+Indexed 200/3962 files.
+Indexed 400/3962 files.
+Indexed 600/3962 files.
+Indexed 800/3962 files.
+Indexed 1000/3962 files.
+Indexed 1200/3962 files.
+Indexed 1400/3962 files.
+Indexed 1600/3962 files.
+Indexed 1800/3962 files.
+Indexed 2000/3962 files.
+Indexed 2200/3962 files.
+Indexed 2400/3962 files.
+Indexed 2600/3962 files.
+Indexed 2800/3962 files.
+Indexed 3000/3962 files.
+Indexed 3200/3962 files.
+Indexed 3400/3962 files.
+Indexed 3600/3962 files.
+Indexed 3800/3962 files.
+
+Valid scenes: 3962
+Skipped during indexing: 0
+Processing 42 days.
+
+Processing 2006-08-19...
+Written: seviri_2006-08-19.nc | 96 scenes
+
+Processing 2006-08-20...
+Written: seviri_2006-08-20.nc | 96 scenes
+
+Processing 2006-08-21...
+Written: seviri_2006-08-21.nc | 96 scenes
+
+Processing 2006-08-22...
+Written: seviri_2006-08-22.nc | 96 scenes
+
+Processing 2006-08-23...
+Written: seviri_2006-08-23.nc | 96 scenes
+
+Processing 2006-08-24...
+Written: seviri_2006-08-24.nc | 96 scenes
+
+Processing 2006-08-25...
+Written: seviri_2006-08-25.nc | 96 scenes
+
+Processing 2006-08-26...
+Written: seviri_2006-08-26.nc | 96 scenes
+
+Processing 2006-08-27...
+Written: seviri_2006-08-27.nc | 96 scenes
+
+Processing 2006-08-28...
+Written: seviri_2006-08-28.nc | 96 scenes
+
+Processing 2006-08-29...
+Written: seviri_2006-08-29.nc | 96 scenes
+
+Processing 2006-08-30...
+Written: seviri_2006-08-30.nc | 96 scenes
+
+Processing 2006-08-31...
+Written: seviri_2006-08-31.nc | 96 scenes
+
+Processing 2006-09-01...
+Written: seviri_2006-09-01.nc | 96 scenes
+
+Processing 2006-09-02...
+Written: seviri_2006-09-02.nc | 96 scenes
+
+Processing 2006-09-03...
+Written: seviri_2006-09-03.nc | 96 scenes
+
+Processing 2006-09-04...
+Written: seviri_2006-09-04.nc | 96 scenes
+
+Processing 2006-09-05...
+Written: seviri_2006-09-05.nc | 96 scenes
+
+Processing 2006-09-06...
+Written: seviri_2006-09-06.nc | 96 scenes
+
+Processing 2006-09-07...
+Written: seviri_2006-09-07.nc | 96 scenes
+
+Processing 2006-09-08...
+Written: seviri_2006-09-08.nc | 94 scenes
+
+Processing 2006-09-09...
+Written: seviri_2006-09-09.nc | 96 scenes
+
+Processing 2006-09-10...
+Written: seviri_2006-09-10.nc | 96 scenes
+
+Processing 2006-09-11...
+Written: seviri_2006-09-11.nc | 96 scenes
+
+Processing 2006-09-12...
+Written: seviri_2006-09-12.nc | 96 scenes
+
+Processing 2006-09-13...
+Written: seviri_2006-09-13.nc | 96 scenes
+
+Processing 2006-09-14...
+Written: seviri_2006-09-14.nc | 96 scenes
+
+Processing 2006-09-15...
+Written: seviri_2006-09-15.nc | 96 scenes
+
+Processing 2006-09-16...
+Written: seviri_2006-09-16.nc | 96 scenes
+
+Processing 2006-09-17...
+Written: seviri_2006-09-17.nc | 96 scenes
+
+Processing 2006-09-18...
+Written: seviri_2006-09-18.nc | 96 scenes
+
+Processing 2006-09-19...
+Written: seviri_2006-09-19.nc | 96 scenes
+
+Processing 2006-09-20...
+Written: seviri_2006-09-20.nc | 96 scenes
+
+Processing 2006-09-21...
+Written: seviri_2006-09-21.nc | 96 scenes
+
+Processing 2006-09-22...
+Written: seviri_2006-09-22.nc | 96 scenes
+
+Processing 2006-09-23...
+Written: seviri_2006-09-23.nc | 56 scenes
+
+Processing 2006-09-25...
+Written: seviri_2006-09-25.nc | 69 scenes
+
+Processing 2006-09-26...
+Written: seviri_2006-09-26.nc | 96 scenes
+
+Processing 2006-09-27...
+Written: seviri_2006-09-27.nc | 96 scenes
+
+Processing 2006-09-28...
+Written: seviri_2006-09-28.nc | 96 scenes
+
+Processing 2006-09-29...
+Written: seviri_2006-09-29.nc | 96 scenes
+
+Processing 2006-09-30...
+Written: seviri_2006-09-30.nc | 95 scenes
+
+SEVIRI feature extraction completed.
+Output directory: /home/adesh/Documents/Projects/Storm-Paper/Code/data/interim/seviri_features

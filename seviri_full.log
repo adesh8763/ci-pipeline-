@@ -1,0 +1,5 @@
+nohup: ignoring input
+access OK: read 1048576 bytes of MSG1-SEVI-MSG15-0201-NA-20060819002740.845000000Z-NA
+Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/os?format=json&pi=EO%3AEUM%3ADAT%3AMSG%3AHRSEVIRI&si=2200&c=100&dtstart=2006-08-19T00%3A00%3A00&dtend=2006-09-30T23%3A45%3A00 due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno -3] Temporary failure in name resolution)"
+3962 products in scope, 3962 already done, 0 to do this run, workers 4
+finished: 0 ok, 0 failed. Failures are in data/logs/seviri_fetch_failed.txt; rerun the same command to retry them.

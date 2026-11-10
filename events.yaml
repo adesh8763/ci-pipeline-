@@ -1,0 +1,60 @@
+# Event criteria for true-CI / false-CI construction.
+#
+# STATUS: PROVISIONAL, AUTHORED BY THE ASSISTANT. The original research proposal is not in this
+# workspace, so these definitions are NOT taken from it. Numeric thresholds are placeholder starting
+# values chosen for a satellite + precipitation-estimate design; they have not been calibrated against
+# any data here and are not claimed to come from a verified publication. The proposal's definitions,
+# once supplied, override this file.
+#
+# NO RADAR IS USED. "Precipitation confirmation" below means a satellite-derived IMERG estimate, which
+# is not radar-confirmed convection.
+
+meta:
+  provisional: true
+  version: 1
+  observation_basis: "SEVIRI IR 10.8 um brightness temperature + IMERG half-hourly precipitation estimate (no radar)"
+
+grid:
+  # Canonical analysis inputs (regular lat/lon in degrees, UTC times). The adapters that produce
+  # these from raw SEVIRI/IMERG/ERA5 files cannot be written until real files exist.
+  inputs_dir: "data/interim/canonical"
+  seviri_file: "seviri_bt108.nc"     # var bt108 (time, lat, lon), Kelvin, NaN = missing, time = scan time (UTC)
+  imerg_file: "imerg_precip.nc"      # var precip (time, lat, lon), mm/h, NaN = missing, time = END of the half-hour window
+  era5_file: "era5_hourly.nc"        # hourly valid time; (time, [level,] lat, lon); any number of variables
+  output_dir: "data/processed/events"
+
+satellite:
+  slot_minutes: 15
+  min_slot_valid_fraction: 0.9        # a SEVIRI slot is usable only if >= this fraction of pixels is finite
+  cold_bt_k: 245.0                    # t0 = first slot with a NEW object colder than this ...
+  min_pixels: 4                       # ... covering at least this many connected pixels
+  newness_lookback_min: 45            # object must not overlap cold cloud in this lookback (else a continuing system)
+  newness_radius_deg: 0.3
+  core_bt_k: 235.0                    # outcome (a): object core reaches this temperature
+
+precip:
+  threshold_mm_h: 2.0                 # outcome (b): IMERG estimate at/above this within the footprint
+  window_minutes: 30
+  time_convention: "end"              # canonical time is the END of the window; usable only once ended
+
+outcome:
+  window_min: 60                      # outcome evaluated over (t0, t0 + window]
+  footprint_radius_deg: 0.4           # fixed disc around the initiation centroid (no advection; documented limitation)
+  min_precip_valid_fraction: 0.8      # share of finite IMERG pixels in the footprint for a window to count as observed
+
+labels:
+  # true_ci     : (a) core reached AND (b) precip >= threshold
+  # false_ci    : (a) NOT reached AND (b) observed completely and below threshold
+  # ambiguous   : (a) and (b) disagree -> excluded from modelling
+  # unknown     : outcome observations incomplete -> excluded; NEVER false_ci
+  # excluded_*  : history incomplete -> cannot establish that the object is new -> excluded
+  classes_for_modelling: [true_ci, false_ci]
+
+predictors:
+  satellite_footprint_radius_deg: 0.2
+  satellite_lookback_min: 60          # slots t_f, t_f-15, ..., t_f-60 must all be valid for satellite features
+  precip_footprint_radius_deg: 0.3
+  era5_footprint_radius_deg: 0.5
+  min_footprint_valid_fraction: 0.8
+
+# lead_times_min comes from config/study.yaml and must be a multiple of satellite.slot_minutes

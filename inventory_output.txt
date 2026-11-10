@@ -1,0 +1,58 @@
+
+=== data/raw/era5 ===
+files: 4   size: 139.8 MB   types: {'.grib': 4}
+    pressure_levels_200608.grib
+    pressure_levels_200609.grib
+    single_levels_200608.grib
+    pressure_levels_200609.grib
+    single_levels_200608.grib
+    single_levels_200609.grib
+
+=== data/raw/imerg ===
+files: 2064   size: 15.3 GB   types: {'.hdf5': 2064}
+    3B-HHR.MS.MRG.3IMERG.20060819-S000000-E002959.0000.V07B.HDF5
+    3B-HHR.MS.MRG.3IMERG.20060819-S003000-E005959.0030.V07B.HDF5
+    3B-HHR.MS.MRG.3IMERG.20060819-S010000-E012959.0060.V07B.HDF5
+    ...
+    3B-HHR.MS.MRG.3IMERG.20060930-S223000-E225959.1350.V07B.HDF5
+    3B-HHR.MS.MRG.3IMERG.20060930-S230000-E232959.1380.V07B.HDF5
+    3B-HHR.MS.MRG.3IMERG.20060930-S233000-E235959.1410.V07B.HDF5
+  [3B-HHR.MS.MRG.3IMERG.20060819-S000000-E002959.0000.V07B.HDF5] dims={}
+  vars=[]
+
+=== data/raw/radar_npol ===
+files: 125   size: 20.0 GB   types: {'.tar': 125}
+    NAMMA_NPOL_060819_gridded.tar
+    NAMMA_NPOL_060819_volume.tar
+    NAMMA_NPOL_060820_gridded.tar
+    ...
+    NAMMA_NPOL_060930_gridded.tar
+    NAMMA_NPOL_060930_surface.tar
+    NAMMA_NPOL_060930_volume.tar
+  pyart could not read NAMMA_NPOL_060819_gridded.tar: No module named 'pyart'
+
+=== data/raw/seviri_tailored ===
+files: 16   size: 35.0 MB   types: {'.nc': 16}
+    HRSEVIRI_20060819T000009Z_20060819T001240Z_epct_9e03dbc6_FPC.nc
+    HRSEVIRI_20060819T001509Z_20060819T002740Z_epct_e9fb1688_FPC.nc
+    HRSEVIRI_20060819T003009Z_20060819T004240Z_epct_1db20bb3_FPC.nc
+    ...
+    HRSEVIRI_20060819T031509Z_20060819T032741Z_epct_1d92f9e9_FPC.nc
+    HRSEVIRI_20060819T033009Z_20060819T034241Z_epct_f81018db_FPC.nc
+    HRSEVIRI_20060819T034509Z_20060819T035741Z_epct_fcf5d5ae_FPC.nc
+  [HRSEVIRI_20060819T000009Z_20060819T001240Z_epct_9e03dbc6_FPC.nc] dims={'lat': 284, 'lon': 284}
+  vars=['crs', 'channel_9', 'channel_5', 'channel_6', 'channel_4', 'channel_10', 'channel_7', 'channel_1']
+
+=== data/interim/seviri_box ===
+files: 3962   size: 9.7 GB   types: {'.nc': 3962}
+    MSG1-SEVI-MSG15-0201-NA-20060819001240.917000000Z-NA.nc
+    MSG1-SEVI-MSG15-0201-NA-20060819002740.845000000Z-NA.nc
+    MSG1-SEVI-MSG15-0201-NA-20060819004240.774000000Z-NA.nc
+    ...
+    MSG2-SEVI-MSG15-0201-NA-20060930231243.921000000Z-NA.nc
+    MSG2-SEVI-MSG15-0201-NA-20060930232744.118000000Z-NA.nc
+    MSG2-SEVI-MSG15-0201-NA-20060930234242.476000000Z-NA.nc
+  [MSG1-SEVI-MSG15-0201-NA-20060819001240.917000000Z-NA.nc] dims={'y': 297, 'x': 296}
+  vars=['box', 'IR_039', 'IR_087', 'IR_108', 'IR_120', 'VIS006', 'WV_062', 'WV_073']
+
+logs: ['seviri_fetch_done.txt', 'seviri_fetch_failed.txt', 'seviri_tailor_done.txt', 'seviri_tailor_failed.txt']

@@ -1,0 +1,120 @@
+# Study configuration -- Conditional Information Framework for True Convective Initiation (CI)
+#
+# STATUS OF THIS FILE: every setting below is PROVISIONAL. They come from the user's
+# message of 2026-10-10, not from the original research proposal (which is not in this
+# workspace). Change values here; do not hard-code them in scripts.
+
+meta:
+  config_version: 1
+  provisional: true
+  provenance: "User message 2026-10-10 13:17 IST; original proposal not available to the assistant"
+  direction: "Rapidly developing African convective storms; unique predictive contribution of atmospheric information under sparse observations"
+
+region:
+  name: "West African Sahel (provisional)"
+  lat_min: 10.0
+  lat_max: 15.0
+  lon_min: -15.0
+  lon_max: 5.0
+  # Padding applied when SUBSETTING DATA so that tracking, convergence/gradient terms
+  # and storm advection are not cut off at the box edge. Event labels use the core box.
+  pad_deg: 2.0
+
+periods:
+  # Full prototype period (cheap products: ERA5, IMERG region subset)
+  prototype_full:
+    start: "2022-06-01"
+    end:   "2022-09-30"
+  # Short core window for the expensive product (SEVIRI). PROVISIONAL choice: two weeks
+  # in the peak monsoon month. Needs the user's confirmation before use.
+  prototype_core:
+    start: "2022-08-01"
+    end:   "2022-08-14"
+  # Only if coverage, access and capacity permit. Not acquired.
+  expansion:
+    years: [2018, 2019, 2020, 2021, 2022]
+    months: [6, 7, 8, 9]
+  # Extra time (minutes) fetched before the first and after the last day so that
+  # the 180-min lead window of an event on day 1 00:00 UTC is covered.
+  buffer_minutes_before: 360
+  buffer_minutes_after: 120
+
+lead_times_min: [180, 120, 90, 60, 30]
+
+# Alignment rules (documented now, enforced at event-construction / predictor extraction)
+alignment:
+  # Predictor for lead L and CI time t0 may use data with valid time <= t0 - L only.
+  causal_rule: "valid_time <= t0 - L"
+  era5:
+    temporal_resolution_min: 60
+    rule: "use the most recent ERA5 hour <= t0 - L (floor to the hour); never interpolate forward or round up"
+    note: "L=90 and L=30 generally fall between ERA5 hours, so ERA5 age at forecast time is up to 59 min"
+  imerg:
+    temporal_resolution_min: 30
+    rule: "a half-hour window is usable only after it has ended; check the window start/end convention in file metadata before use"
+  seviri:
+    temporal_resolution_min: 15
+    rule: "use scan time from file metadata; do not assume the nominal slot time equals acquisition time at 10-15N"
+
+products:
+  era5_pressure_levels:
+    enabled: true
+    source: "Copernicus CDS"
+    dataset_id: "reanalysis-era5-pressure-levels"
+    doi: "10.24381/cds.bd0915c6"
+    # Names below are PLANNED. Variable existence in the hourly 0.25 deg product must be
+    # confirmed against the CDS request form on the first authenticated call.
+    variables: [temperature, specific_humidity, u_component_of_wind, v_component_of_wind, vertical_velocity, geopotential]
+    pressure_levels_hpa: [1000, 925, 850, 700, 600, 500, 400, 300, 200]
+    grid_deg: 0.25
+    format: grib
+    local_dir: "data/raw/era5/pressure_levels"
+  era5_single_levels:
+    enabled: true
+    source: "Copernicus CDS"
+    dataset_id: "reanalysis-era5-single-levels"
+    doi: "10.24381/cds.adbb2d47"
+    # CAPE / CIN / TCWV / 2 m fields are NOT yet confirmed present in the fetched documentation.
+    variables: [convective_available_potential_energy, convective_inhibition, total_column_water_vapour, 2m_temperature, 2m_dewpoint_temperature, surface_pressure, 10m_u_component_of_wind, 10m_v_component_of_wind]
+    grid_deg: 0.25
+    format: grib
+    local_dir: "data/raw/era5/single_levels"
+  imerg_final_halfhourly:
+    enabled: true
+    source: "NASA GES DISC (Earthdata login required)"
+    short_name: "GPM_3IMERGHH"
+    version: "07"      # documentation says 07B is current; record exact version from file metadata
+    doi: "10.5067/GPM/IMERG/3B-HH/07"
+    variable_planned: "precipitation (gauge-calibrated multi-satellite estimate; mm/hr per documentation)"
+    subset_server_side: true   # whole global files are too large to fetch for this window
+    local_dir: "data/raw/imerg"
+  seviri_l15:
+    enabled: true
+    source: "EUMETSAT Data Store (account + API key required)"
+    collection_id: "EO:EUM:DAT:MSG:HRSEVIRI"
+    service: "MSG 0 degree"
+    channels_planned: ["IR_108", "WV_062", "WV_073", "IR_039", "IR_120", "IR_087", "VIS006"]  # subset; confirm channel naming from files
+    subset_server_side: true   # Data Tailor / region + channel subset; full-disk fetch is not feasible
+    local_dir: "data/raw/seviri"
+
+limits:
+  min_free_disk_gb: 8
+  max_total_download_gb_prototype: 15
+  # Per-file size assumptions used ONLY for the pre-download estimate (not measured):
+  assumptions:
+    imerg_global_file_mb: 6        # UNVERIFIED
+    seviri_native_fulldisk_mb: 250 # UNVERIFIED
+    seviri_subset_mb_per_slot: 1.5 # UNVERIFIED (region+channel subset)
+    grib_bytes_per_value: 2        # packed GRIB, rough
+
+paths:
+  manifest: "manifest/data_manifest.csv"
+  checksums: "manifest/checksums.sha256"
+  access_log: "logs/access_checks.jsonl"
+  ca_bundle: "/root/.ccr/ca-bundle.crt"
+
+credentials:
+  # Never stored in the repo. Scripts only read these locations/variables.
+  cds: "~/.cdsapirc  (url + key)"
+  earthdata: "~/.netrc entry for urs.earthdata.nasa.gov, or EARTHDATA_USERNAME / EARTHDATA_PASSWORD"
+  eumetsat: "EUMETSAT_CONSUMER_KEY and EUMETSAT_CONSUMER_SECRET environment variables"
