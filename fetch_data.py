@@ -155,7 +155,12 @@ def era5(args):
             guard(args, 0.2)
             if c is None:
                 import cdsapi
-                c = cdsapi.Client()
+                #import os
+
+                url = os.getenv("CDSAPI_URL")
+                key = os.getenv("CDSAPI_KEY")
+
+                c = cdsapi.Client(url=url, key=key)
             os.makedirs(os.path.dirname(target), exist_ok=True)
             if not os.path.exists(target):
                 c.retrieve(ds, dict(req, year=str(y), month=m, day=days), target)
@@ -284,7 +289,7 @@ def seviri(args):
     print(len(todo), "to do,", len(prods) - len(todo), "already done")
 
     if args.tailor:
-        # Chain fields are UNVERIFIED; adjust if the service rejects them.
+        #Chain fields are UNVERIFIED; adjust if the service rejects them.
         dtl = eumdac.DataTailor(tok)
         chain = eumdac.tailor_models.Chain(
             product="HRSEVIRI", format="netcdf4", projection="geographic",
@@ -366,4 +371,8 @@ if __name__ == "__main__":
 
 
 
-# nohup python -u seviri_fetch.py --max-gb 100 --workers 4 > seviri_full.log 2>&1 & tail -f seviri_full.log
+#To download the eumetsat deviri data follow these steps :-
+#export EUMETSAT_CONSUMER_KEY="jG0gvjCrzRbGU5N0rBCGO2dvCusa"
+#export EUMETSAT_CONSUMER_SECRET="TFSZIVV2_HA0qXbzxPYRdiTE4Xka"
+#export EUMETSAT_API_KEY="6df0faeb-575e-3075-9e3c-3e7f614f4368"
+#nohup python -u seviri_fetch.py --max-gb 100 --workers 4 > seviri_full.log 2>&1 & tail -f seviri_full.log

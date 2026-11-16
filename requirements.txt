@@ -8,3 +8,13 @@ dask
 scikit-learn
 arm-pyart
 matplotlib
+earthaccess
+eumdac
+"setuptools<81"
+satpy
+eumdac
+xarray
+netCDF4
+h5netcdf
+pyresample
+trollimage
